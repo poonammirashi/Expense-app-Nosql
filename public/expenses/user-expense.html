@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Expense</title>
+    <link rel="stylesheet" href="user-expense.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="form">
+        <form action="" onsubmit="addExpense(event)">
+            <h2>Expense Table</h2>
+            <input type="number" name="amount" id="amount" placeholder="Enter Expence amount">
+            <input type="description" name="description" id="description" placeholder="Enter description">
+            <label for="category">Enter category</label>
+            <select name="category" id="category">
+                <option value="food">Food</option>
+                <option value="sharemarket">Share Market</option>
+                <option value="petrol">Fuel</option>
+                <option value="cloths">Cloths</option>
+                <option value="stationary">Statoinary</option>
+                <option value="hardware">Hardware</option>
+                <option value="film">film</option>
+            </select>
+            <button type="submit">Add Expence</button>
+        </form>
+            <p>
+                <button id="rzp-btn1">Buy Premium Membership</button>
+                <h3 style="margin : 5%; display: block;" id="message"></h3>
+            </p>
+
+        <ul id="datafile">
+            <h3>Downloaded Files</h3>
+        </ul>
+        <ul id="lb">
+
+        </ul>
+        <div style="display: block">
+            <h3>Expense</h3>
+            <label for="rows"> Rows per Page</label>
+            <select name="rows" id="rows" onchange="changeRows()">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+            </select>
+            <ul id="items">
+
+            </ul>
+            <div id="page-button" style="text-align: center;">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="user-expense.js"></script>
+</body>
+
+</html>
