@@ -11,10 +11,10 @@ async function signUp(e) {
             email,
             password
         }
-        const user = await axios.post("http://localhost:4000/user/sign-up", signUpObj)
+        const user = await axios.post("https://expense-tracker-app-o6bo.onrender.com//user/sign-up", signUpObj)
         if (user.status === 201) {
             alert("user sign-up successfully");
-            window.location.href = "http://localhost:4000/login/login.html"
+            window.location.href = "https://expense-tracker-app-o6bo.onrender.com//login/login.html"
         } else {
             throw new Error("user not created");
         }
