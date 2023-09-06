@@ -11,10 +11,10 @@ async function signUp(e) {
             email,
             password
         }
-        const user = await axios.post("https://expense-tracker-app-o6bo.onrender.com/user/sign-up", signUpObj)
+        const user = await axios.post("http://expense-tracker-app-o6bo.onrender.com/user/sign-up", signUpObj)
         if (user.status === 201) {
             alert("user sign-up successfully");
-            window.location.href = "https://expense-tracker-app-o6bo.onrender.com/login/login.html"
+            window.location.href = "http://expense-tracker-app-o6bo.onrender.com/login/login.html"
         } else {
             throw new Error("user not created");
         }
