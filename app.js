@@ -32,9 +32,9 @@ const forgotPassword = require("./routes/forgot-password");
 
 app.use(bodyparser.json({extended:false}));
 
-app.use("/user",userroute);
-app.use("/user/expense",expenseroute);
-app.use("/user/purchase",premiummembership);
+app.use("/user", userroute);
+app.use("/user/expense", expenseroute);
+app.use("/user/purchase", premiummembership);
 app.use("/password", forgotPassword);
 
 app.use((req,res) => {
@@ -42,7 +42,7 @@ app.use((req,res) => {
     res.sendFile(path.join(__dirname, `public/${req.url}`))
 })
 
-app.use((req,res) => {
+app.get("/", (req,res) => {
     if(req.url === '/'){
         res.redirect('/sign-up/sign-up.html')
     }
