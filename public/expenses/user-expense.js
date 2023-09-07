@@ -7,14 +7,14 @@ let page = 1;
                 console.log(decodeToken,limit);
                 if (decodeToken.isPremier === true) {
                     showPremier();
-                    const fileUrl = await axios.get("http://expense-tracker-app-o6bo.onrender.com/user/expense/download/getfiles", { headers: { "Authorization": token } })
+                    const fileUrl = await axios.get("https://expense-tracker-app-o6bo.onrender.com/user/expense/download/getfiles", { headers: { "Authorization": token } })
                     console.log(fileUrl);
                     fileUrl.data.files.forEach((data) => {
                         showdownloadedFiles(data);
                     })
                 }
                 
-                const pageData = await axios.get(`http://expense-tracker-app-o6bo.onrender.com/user/expense/get-expenses?page=${page}&limit=${limit}`, { headers: { "Authorization": token } });
+                const pageData = await axios.get(`https://expense-tracker-app-o6bo.onrender.com/user/expense/get-expenses?page=${page}&limit=${limit}`, { headers: { "Authorization": token } });
                 console.log(pageData)
                 localStorage.setItem("rowsperpage", pageData.data.limit);
                 document.getElementById("rows").value = pageData.data.limit ;
@@ -28,13 +28,13 @@ let page = 1;
         document.getElementById("rzp-btn1").onclick = async function goRazorPay(e) {
             try {
                 const token = localStorage.getItem("token");
-                const response = await axios.get("http://expense-tracker-app-o6bo.onrender.com/user/purchase/premium-membership", { headers: { "Authorization": token } });
+                const response = await axios.get("https://expense-tracker-app-o6bo.onrender.com/user/purchase/premium-membership", { headers: { "Authorization": token } });
                 console.log(response);
                 var options = {
                     "key": response.data.key_id,
                     "order_id": response.data.order.id,
                     "handler": async function (response) {
-                        const res = await axios.post("http://expense-tracker-app-o6bo.onrender.com/user/purchase/premium-membership", {
+                        const res = await axios.post("https://expense-tracker-app-o6bo.onrender.com/user/purchase/premium-membership", {
                             order_id: options.order_id,
                             payment_id: response.razorpay_payment_id
                         },
@@ -51,7 +51,7 @@ let page = 1;
 
                 rzp1.on("payment.failed", async function (response) {
                     console.log(response, "err");
-                    await axios.post("http://expense-tracker-app-o6bo.onrender.com/user/purchase/premium-membership-fail", {
+                    await axios.post("https://expense-tracker-app-o6bo.onrender.com/user/purchase/premium-membership-fail", {
                         order_id: response.error.metadata.order_id,
                         payment_id: response.error.metadata.payment_id
                     },
@@ -74,7 +74,7 @@ let page = 1;
                 const amount = document.getElementById("amount").value;
                 const description = document.getElementById("description").value;
                 const category = document.getElementById("category").value;
-                const newexpense = await axios.post("http://expense-tracker-app-o6bo.onrender.com/user/expense/add-expense", {
+                const newexpense = await axios.post("https://expense-tracker-app-o6bo.onrender.com/user/expense/add-expense", {
                     amount,
                     description,
                     category,
@@ -118,7 +118,7 @@ let page = 1;
         async function download() {
             try {
                 const token = localStorage.getItem('token');
-                const download = await axios.get("http://expense-tracker-app-o6bo.onrender.com/user/expense/download", { headers: { "Authorization": token } });
+                const download = await axios.get("https://expense-tracker-app-o6bo.onrender.com/user/expense/download", { headers: { "Authorization": token } });
                 showdownloadedFiles(download.data.userUrl);
             } catch (err) {
                 console.log(err);
@@ -142,7 +142,7 @@ let page = 1;
         async function showLeaderboard() {
             try {
                 const token = localStorage.getItem("token");
-                const LeaderboardUsers = await axios.get("http://expense-tracker-app-o6bo.onrender.com/user/expense/leaderboard", { headers: { "Authorization": token } });
+                const LeaderboardUsers = await axios.get("https://expense-tracker-app-o6bo.onrender.com/user/expense/leaderboard", { headers: { "Authorization": token } });
                 console.log(LeaderboardUsers);
                 const ul = document.getElementById("lb");
                 ul.innerHTML = `<h3>Leader Baord</h3>`;
@@ -193,7 +193,7 @@ let page = 1;
                 const ul = document.getElementById("items");
                 ul.innerHTML = ""
                 const token = localStorage.getItem("token");
-                const pageData = await axios.get(`http://expense-tracker-app-o6bo.onrender.com/user/expense/get-expenses?page=${page}&limit=${limit}`, { headers: { "Authorization": token} });
+                const pageData = await axios.get(`https://expense-tracker-app-o6bo.onrender.com/user/expense/get-expenses?page=${page}&limit=${limit}`, { headers: { "Authorization": token} });
                 pageData.data.expenses.forEach(data => {
                     showExpenseOnScreen(data);
                 })
@@ -216,7 +216,7 @@ let page = 1;
         async function deleteExpense(id) {
             try {
                 const token = localStorage.getItem('token');
-                const expense = await axios.delete(`http://expense-tracker-app-o6bo.onrender.com/user/expense/delete-expense/${id}`, { headers: { "Authorization": token } });
+                const expense = await axios.delete(`https://expense-tracker-app-o6bo.onrender.com/user/expense/delete-expense/${id}`, { headers: { "Authorization": token } });
                 console.log(expense);
                 const ul = document.getElementById('items');
                 const li = document.getElementById(`${id}`);

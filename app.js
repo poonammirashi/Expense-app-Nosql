@@ -44,7 +44,7 @@ app.use((req,res) => {
 
 app.use((req,res) => {
     if(req.url === '/'){
-        res.redirect('https://expense-tracker-app-o6bo.onrender.com/sign-up/sign-up.html')
+        res.redirect('/sign-up/sign-up.html')
     }
 })
 // User.hasMany(Expense);
