@@ -42,6 +42,11 @@ app.use((req,res) => {
     res.sendFile(path.join(__dirname, `public/${req.url}`))
 })
 
+app.use((req,res) => {
+    if(req.url === '/'){
+        res.redirect('https://expense-tracker-app-o6bo.onrender.com/sign-up/sign-up.html')
+    }
+})
 // User.hasMany(Expense);
 // Expense.belongsTo(User);
 
