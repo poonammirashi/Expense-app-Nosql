@@ -3,10 +3,10 @@ async function login(e) {
                 e.preventDefault();
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
-                const loginUser = await axios.post("http://expense-tracker-app-o6bo.onrender.com/user/login", { email, password })
+                const loginUser = await axios.post("https://expense-tracker-app-o6bo.onrender.com/user/login", { email, password })
                     window.alert("login successfull");
                     localStorage.setItem('token', loginUser.data.token);
-                    window.location.href = ("http://expense-tracker-app-o6bo.onrender.com/expenses/user-expense.html")
+                    window.location.href = ("https://expense-tracker-app-o6bo.onrender.com/expenses/user-expense.html")
             }
             catch (err) {
                 console.log(err)
