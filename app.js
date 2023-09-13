@@ -20,7 +20,9 @@ const cors = require('cors');
 
 const filestream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
 
-app.use(cors());
+app.use(cors({
+    origin : "*" ,
+}));
 app.use(helmet.xssFilter());
 app.use(morgan('combined', {stream : filestream}));
 app.use(helmet.noSniff());
