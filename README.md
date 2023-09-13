@@ -1,9 +1,8 @@
 # Expense-app-Nosql
-![Expense Tracker Logo](./images/logo.png)
 
 An Expense Tracker web application that allows users to manage their expenses. This app is built with Node.js, Express, MongoDB, and Mongoose. It also includes a "Forgot Password" feature for account recovery.
-
-![Screenshot of Expense Tracker](./images/screenshot.png)
+## go live 
+   https://expense-tracker-app-o6bo.onrender.com/login/login.html
 
 ## Table of Contents
 
@@ -36,9 +35,8 @@ An Expense Tracker web application that allows users to manage their expenses. T
 - **Mongoose**: An ODM (Object Data Modeling) library for MongoDB and Node.js.
 - **HTML5 and CSS3**: Used for the app's frontend design and structure.
 - **JavaScript**: For client-side scripting and interaction.
-- **Nodemailer**: Used for sending password reset emails.
-- **Passport.js**: For user authentication.
-- **EJS**: A templating engine for rendering dynamic views.
+- **sendinblue**: Used for sending password reset emails.
+- **jwt token**: For user authentication.
 
 ## Installation
 
@@ -47,4 +45,54 @@ Follow these steps to set up and run the Expense Tracker app locally:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/expense-tracker.git
+   git clone https://github.com/yourusername/Expense-app-Nosql.git
+   cd expense-tracker
+   npm install
+   set up environmental variables
+## Usage
+   Register for a new account or log in if you already have one.
+
+   Add your expenses and categorize them.
+
+   Use the "Forgot Password" feature if you ever forget your password. An email with a password reset link will be sent to your registered email address.
+
+   Manage your expenses, edit, and delete them as needed.
+
+## Folder Structure
+   The project follows this folder structure:
+
+   /config: Contains configuration files for Passport authentication, database setup, and environment variables.
+
+   /models: Defines Mongoose models for User and Expense data.
+
+   /routes: Defines routes for handling user authentication, expense management, and password recovery.
+
+   /views: Contains EJS templates for rendering dynamic pages.
+
+   /public: Stores static assets like stylesheets, client-side JavaScript, and images.
+
+   /controllers: Handles logic for routes and interacts with the database.
+
+## Contributing
+   Contributions are welcome! If you want to contribute to this project, please follow these guidelines:
+
+   Fork the repository.
+
+   Create a new branch for your feature: git checkout -b feature-name
+
+   Commit your changes: git commit -m 'Add new feature'
+
+   Push to the branch: git push origin feature-name
+
+   Create a pull request.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+   Acknowledgments
+   Node.js
+   Express.js
+   MongoDB
+   Mongoose
+   sendinblue
+   jwt token
