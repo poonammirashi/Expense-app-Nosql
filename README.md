@@ -46,9 +46,10 @@ Follow these steps to set up and run the Expense Tracker app locally:
 
    ```bash
    git clone https://github.com/yourusername/Expense-app-Nosql.git
-   cd expense-tracker
+   cd Expense-app-Nosql
    npm install
-   set up environmental variables
+   
+   make file and set up environmental variables
 ## Usage
    Register for a new account or log in if you already have one.
 
@@ -56,7 +57,7 @@ Follow these steps to set up and run the Expense Tracker app locally:
 
    Use the "Forgot Password" feature if you ever forget your password. An email with a password reset link will be sent to your registered email address.
 
-   Manage your expenses, edit, and delete them as needed.
+   Manage your expenses and delete them as needed.
 
 ## Folder Structure
    The project follows this folder structure:
